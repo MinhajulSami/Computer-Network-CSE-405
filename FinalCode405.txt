@@ -1,0 +1,238 @@
+interface fa0/0
+ip address 154.1.10.254 255.255.255.0
+no shut
+do wr
+
+exit
+
+interface se7/0
+ip address 154.10.5.1 255.255.255.0
+no shut
+do wr
+
+exit
+
+
+Router2:
+
+interface fa0/0
+ip address 50.1.0.254 255.255.0.0
+no shut
+do wr
+
+exit
+
+
+interface se2/0
+ip address 50.6.0.1 255.255.0.0
+clock rate 64000
+no shut
+do wr
+
+exit
+
+
+interface se6/0
+ip address 50.7.0.1 255.255.0.0
+clock rate 64000
+no shut
+do wr
+
+exit
+
+Router3:
+
+interface fa0/0
+ip address 50.3.0.254 255.255.0.0
+no shut
+do wr
+exit
+
+interface se2/0
+ip address 50.8.0.1 255.255.0.0
+clock rate 64000
+no shut
+do wr
+exit
+
+interface se3/0
+ip address 50.7.0.1 255.255.0.0
+no shut
+do wr
+exit
+
+Router4:
+
+interface fa1/0
+ip address 168.20.2.254 255.255.0.0
+no shut
+do wr
+exit
+
+interface se2/0
+ip address 168.20.5.1 255.255.0.0
+clock rate 64000
+no shut
+do wr
+exit
+
+interface se3/0
+ip address 168.20.3.2 255.255.0.0
+no shut
+do wr
+exit
+
+Router5:
+
+interface fa0/0
+ip address 168.20.1.254 255.255.0.0
+no shut
+do wr
+exit
+
+interface se2/0
+ip address 168.20.4.1 255.255.0.0
+clock rate 64000
+no shut
+do wr
+exit
+
+interface se6/0
+ip address 168.20.3.1 255.255.0.0
+clock rate 64000
+no shut
+do wr
+exit
+
+Router6:
+
+interface fa0/0
+ip address 192.168.10.254 255.255.0.0
+no shut
+do wr
+exit
+
+interface se2/0
+ip address 50.9.0.1 255.255.0.0
+clock rate 64000
+no shut
+do wr
+exit
+
+
+Router7:
+
+interface fa0/0
+ip address 50.5.0.254 255.255.0.0
+no shut
+do wr
+exit
+
+interface se2/0
+ip address 154.10.5.2 255.255.255.0
+clock rate 64000
+no shut
+do wr
+exit
+
+interface se2/0
+ip address 154.10.5.2 255.255.255.0
+clock rate 64000
+no shut
+do wr
+exit
+
+interface se3/0
+ip address 50.6.0.2 255.255.0.0
+no shut
+do wr
+exit
+
+interface se6/0
+ip address 50.8.0.2 255.255.0.0
+no shut
+do wr
+exit
+
+interface se7/0
+ip address 50.9.0.2 255.255.0.0
+no shut
+do wr
+exit
+
+interface se8/0
+ip address 168.20.5.2 255.255.255.0
+no shut
+do wr
+exit
+
+interface se9/0
+ip address 168.20.4.2 255.255.255.0
+no shut
+do wr
+exit
+
+
+
+Campus 1/Router 1:
+router OSPF 1
+network 154.10.1.0 0.0.255.255 area 1
+network 154.10.2.0 0.0.255.255 area 1
+network 154.10.5.0 0.0.255.255 area 1
+exit
+
+Campus 2/Router 2:
+router OSPF 2
+network 50.1.0.0 0.255.255.255 area 1
+network 50.6.0.0 0.255.255.255 area 1
+network 50.7.0.0 0.255.255.255 area 1
+exit
+
+Campus 3/Router 3:
+router OSPF 3
+network 50.3.0.0 0.255.255.255 area 1
+network 50.8.0.0 0.255.255.255 area 1
+network 50.7.0.0 0.255.255.255 area 1
+exit
+
+Campus 4/Router 4:
+router OSPF 4
+network 168.20.2.0 0.0.255.255 area 1
+network 168.20.5.0 0.0.255.255 area 1
+network 168.20.3.0 0.0.255.255 area 1
+exit
+
+Campus 5/Router 5:
+router OSPF 5
+network 168.20.1.0 0.0.255.255 area 1
+network 168.20.4.0 0.0.255.255 area 1
+network 168.20.3.0 0.0.255.255 area 1
+exit
+
+Campus 6/Router 6:
+router OSPF 6
+network 192.168.10.0 0.0.0.255 area 1
+network 50.9.0.0 0.255.255.255 area 1
+exit
+
+
+
+
+Campus 7/Router 7:
+router OSPF 7
+network 50.5.0.0 0.255.255.255 area 1
+network 154.10.5.0 0.0.255.255 area 1
+network 50.6.0.0 0.255.255.255 area 1
+network 50.8.0.0 0.255.255.255 area 1
+network 50.9.0.0 0.255.255.255 area 1
+network 168.20.5.0 0.0.255.255 area 1
+network 168.20.4.0 0.0.255.255 area 1
+exit
+
+
+
+
+
+
+
+
